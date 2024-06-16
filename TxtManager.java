@@ -7,17 +7,14 @@ import java.nio.file.Paths;
 import java.util.List;
 
 public class TxtManager {
-	private String rutaArchivo;
-	private String rutaArchivoSalida;
 	private Path path;
 	public TxtManager() {
-		this.rutaArchivo = System.getProperty("user.home") + "/Desktop/AFN.txt";
-		this.rutaArchivoSalida = System.getProperty("user.home") + "/Desktop/AFN-nuevo.txt";
+		//this.rutaArchivoSalida = System.getProperty("user.home") + "/Desktop/AFN-nuevo.txt";
 		this.path = null;
 	}
-	public List<String> leer() {
+	public List<String> leer(String ruta) {
 		try {
-			this.path = Paths.get(rutaArchivo);
+			this.path = Paths.get(System.getProperty("user.home") + ruta);
 			List<String> lineas = Files.readAllLines(path);
 			return lineas;
 		} catch (IOException e) {
@@ -25,8 +22,9 @@ public class TxtManager {
 			return null;
 		}
 	}
-	public void escribir(List<String> texto) {
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(rutaArchivoSalida))) {
+	public void escribir(List<String> texto,String ruta) {
+		ruta = (System.getProperty("user.home") + ruta);
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(ruta))) {
             for (String linea : texto) {
                 writer.write(linea);
                 writer.newLine();
