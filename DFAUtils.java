@@ -1,11 +1,13 @@
+package tc.AutomataFinitoNoDeterministico;
+
 class DFAUtils {
     public static boolean pertenece(DFA dfa, String s) {
         String currentState = dfa.getEstadoInicial();
         for (char c : s.toCharArray()) {
             boolean transicionEncontrada = false;
             for (Transicion transicion : dfa.getTransiciones()) {
-                if (transicion.getEstadoOrigen().equals(currentState) && transicion.getSimbolo() == c) {
-                    currentState = transicion.getEstadoDestino();
+                if (transicion.getOrigen().equals(currentState) && transicion.getSimbolo() == c) {
+                    currentState = transicion.getDestino();
                     transicionEncontrada = true;
                     break;
                 }
