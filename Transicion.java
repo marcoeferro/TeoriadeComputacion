@@ -19,7 +19,7 @@ public class Transicion {
         return destino;
     }
 
-    public char getSimbolo() {
+    public Character getSimbolo() {
         return simbolo;
     }
 }

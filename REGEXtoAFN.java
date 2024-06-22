@@ -1,3 +1,5 @@
+package tc.AutomataFinitoNoDeterministico;
+
 public class REGEXtoAFN {
 
     public AFN parseExpression(String regex, int[] index) {

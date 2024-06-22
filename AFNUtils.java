@@ -1,3 +1,5 @@
+package tc.AutomataFinitoNoDeterministico;
+
 public class AFNUtils {
 
     // Método para unión de dos AFNs (3.a)

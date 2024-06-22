@@ -12,12 +12,12 @@ public class AFN {
 		estadosFinales = new HashSet<>(); // conjunto de estados finales
 	}
 
-	public AFN(char c) {
+	public AFN(Character c) {
 		this.transiciones = new HashSet<>();
 		this.estadosFinales = new HashSet<>();
-		this.estadoInicial = "";
-		this.estadosFinales.add(c + "");
-		this.transiciones.add(new Transicion("", c + "", null));
+		this.estadoInicial = "q0_"+c;
+		this.estadosFinales.add("qf_"+c);
+		this.transiciones.add(new Transicion("q0_"+c,"qf_"+c, c));
 	}
 
 	public String getEstadoInicial() {
