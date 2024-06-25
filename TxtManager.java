@@ -9,12 +9,12 @@ import java.util.List;
 public class TxtManager {
 	private Path path;
 	public TxtManager() {
-		//this.rutaArchivoSalida = System.getProperty("user.home") + "/Desktop/AFN-nuevo.txt";
+		//this.rutaArchivoSalida = System.getProperty("user.dir") + "/AFN-nuevo.txt";
 		this.path = null;
 	}
 	public List<String> leer(String ruta) {
 		try {
-			this.path = Paths.get(System.getProperty("user.home") + ruta);
+			this.path = Paths.get(System.getProperty("user.dir") + ruta);
 			List<String> lineas = Files.readAllLines(path);
 			System.out.println("archivo en "+ruta+"leido exitosamente");
 			return lineas;
@@ -24,7 +24,7 @@ public class TxtManager {
 		}
 	}
 	public void escribir(List<String> texto,String ruta) {
-		ruta = (System.getProperty("user.home") + ruta);
+		ruta = (System.getProperty("user.dir") + ruta);
 		try (BufferedWriter writer = new BufferedWriter(new FileWriter(ruta))) {
             for (String linea : texto) {
                 writer.write(linea);

@@ -41,35 +41,35 @@ public class Menu {
     	AFNUtils utils = new AFNUtils();
 		switch(opcion) {
 		case 1:
-			AFN automata1 = converter.textToAFN(gestor.leer("/Desktop/AFN.txt"));
+			AFN automata1 = converter.textToAFN(gestor.leer("/AFN.txt"));
 			AFNtoDFA afn2dfa = new AFNtoDFA();
 			DFA automataDeterminista = afn2dfa.convert(automata1);
-			gestor.escribir(converter.afd2text(automataDeterminista), "/Desktop/AFN-resultado.txt");
-			JOptionPane.showMessageDialog(null,"Archivo guardado en : /Desktop/AFN-resultado.txt");
+			gestor.escribir(converter.afd2text(automataDeterminista), "/AFN-resultado.txt");
+			JOptionPane.showMessageDialog(null,"Archivo guardado en : /AFN-resultado.txt");
 			break;	
 		case 2:
-			AFN automata_a = converter.textToAFN(gestor.leer("/Desktop/AFN.txt"));
-			AFN automata_b = converter.textToAFN(gestor.leer("/Desktop/AFN2.txt"));
+			AFN automata_a = converter.textToAFN(gestor.leer("/AFN.txt"));
+			AFN automata_b = converter.textToAFN(gestor.leer("/AFN2.txt"));
 			
 			AFN automata_union = utils.union(automata_a, automata_b);
-			gestor.escribir(converter.afn2text(automata_union),"/Desktop/AFN-resultado.txt" );
-			JOptionPane.showMessageDialog(null,"Archivo guardado en : /Desktop/AFN-resultado.txt");
+			gestor.escribir(converter.afn2text(automata_union),"/AFN-resultado.txt" );
+			JOptionPane.showMessageDialog(null,"Archivo guardado en : /AFN-resultado.txt");
 			break;
 		case 3:
-			AFN automata_1 = converter.textToAFN(gestor.leer("/Desktop/AFN.txt"));
-			AFN automata_2 = converter.textToAFN(gestor.leer("/Desktop/AFN2.txt"));
+			AFN automata_1 = converter.textToAFN(gestor.leer("/AFN.txt"));
+			AFN automata_2 = converter.textToAFN(gestor.leer("/AFN2.txt"));
 			AFN automata_concatenado = utils.concatenate(automata_1, automata_2);
-			gestor.escribir(converter.afn2text(automata_concatenado),"/Desktop/AFN-resultado.txt" );
-			JOptionPane.showMessageDialog(null,"Archivo guardado en : /Desktop/AFN-resultado.txt");
+			gestor.escribir(converter.afn2text(automata_concatenado),"/AFN-resultado.txt" );
+			JOptionPane.showMessageDialog(null,"Archivo guardado en : /AFN-resultado.txt");
 			break;
 		case 4:
-			AFN kleeneInput = converter.textToAFN(gestor.leer("/Desktop/AFN.txt"));
+			AFN kleeneInput = converter.textToAFN(gestor.leer("/AFN.txt"));
 			AFN kleeneOutput = utils.kleeneStar(kleeneInput);
-			gestor.escribir(converter.afn2text(kleeneOutput),"/Desktop/AFN-resultado.txt");
-			JOptionPane.showMessageDialog(null,"Archivo guardado en : /Desktop/AFN-resultado.txt");
+			gestor.escribir(converter.afn2text(kleeneOutput),"/AFN-resultado.txt");
+			JOptionPane.showMessageDialog(null,"Archivo guardado en : /AFN-resultado.txt");
 			break;
 		case 5:
-			AFN automataTest = converter.textToAFN(gestor.leer("/Desktop/AFN.txt"));
+			AFN automataTest = converter.textToAFN(gestor.leer("/AFN.txt"));
 			System.out.println("ingrese la cadena a correr: ");
 			String cadena = scanner.nextLine();
 	        if (automataTest.correrCadena(cadena)) {
@@ -83,8 +83,8 @@ public class Menu {
 			//System.out.println("ingrese la expresion regular a convertir:"); //*(|(.ab)c)
 			String regex = JOptionPane.showInputDialog("ingrese la expresion regular a convertir - por ejemplo: *(|(.ab)c)");
 			AFN automataRegEx = rgx2afn.parseExpression(rgx2afn.StringtoQueue(regex));
-			gestor.escribir(converter.afn2text(automataRegEx),"/Desktop/AFN-resultado.txt");
-			JOptionPane.showMessageDialog(null,"Archivo guardado en : /Desktop/AFN-resultado.txt");
+			gestor.escribir(converter.afn2text(automataRegEx),"/AFN-resultado.txt");
+			JOptionPane.showMessageDialog(null,"Archivo guardado en : /AFN-resultado.txt");
 			break;
 		default:
 			System.out.println("opcion no valida.");
