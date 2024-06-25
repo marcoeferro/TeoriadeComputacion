@@ -1,16 +1,9 @@
 package tc.AutomataFinitoNoDeterministico;
 
-import java.util.*;
 
 import javax.swing.JOptionPane;
 
 public class Menu {
-	
-	private Scanner scanner;
-	
-	public Menu() {
-		this.scanner = new Scanner(System.in);
-	}
 
 	public int mostrarMenu() {
 		int opcion = 0;
@@ -70,8 +63,7 @@ public class Menu {
 			break;
 		case 5:
 			AFN automataTest = converter.textToAFN(gestor.leer("/AFN.txt"));
-			System.out.println("ingrese la cadena a correr: ");
-			String cadena = scanner.nextLine();
+			String cadena = JOptionPane.showInputDialog("ingrese la cadena a evaluar - por ejemplo: abb o 123");
 	        if (automataTest.correrCadena(cadena)) {
 	        	JOptionPane.showMessageDialog(null,"La cadena " + cadena + " es aceptada por el automata.");
 	        } else {
@@ -87,7 +79,7 @@ public class Menu {
 			JOptionPane.showMessageDialog(null,"Archivo guardado en : /AFN-resultado.txt");
 			break;
 		default:
-			System.out.println("opcion no valida.");
+			JOptionPane.showMessageDialog(null,"opcion no valida","Error",JOptionPane.ERROR_MESSAGE);
 			break;
 		}
 		
