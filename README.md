@@ -1,6 +1,6 @@
 # TeoriadeComputacion
 
-#COMO USAR EL PROGRAMA#
+*COMO USAR EL PROGRAMA*
 #Requerimientos y consideraciones
 ->tener dos archivos AFN.txt y AFN2.txt en el mismo directorio que el proyecto o la aplicacion
 ->el archivo AFN-Resultado.txt se crea automaticamente,y si ya existe sera sobreescrito
