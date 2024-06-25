@@ -1,5 +1,3 @@
-¡Claro! Aquí tienes la información formateada en Markdown:
-
 # Teoría de Computación
 
 ## Cómo usar el programa
@@ -20,5 +18,3 @@
 2. Abre el programa.
 3. Se mostrará un menú emergente; selecciona la opción deseada.
 4. El resultado se guardará en `AFN-Resultado.txt`.
-
-Espero que esta información te sea útil. Si tienes más preguntas, no dudes en preguntar. 😊
