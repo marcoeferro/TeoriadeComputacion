@@ -16,6 +16,7 @@ public class TxtManager {
 		try {
 			this.path = Paths.get(System.getProperty("user.home") + ruta);
 			List<String> lineas = Files.readAllLines(path);
+			System.out.println("archivo en "+ruta+"leido exitosamente");
 			return lineas;
 		} catch (IOException e) {
 			e.printStackTrace(System.out);
