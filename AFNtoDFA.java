@@ -15,24 +15,28 @@ public class AFNtoDFA {
 	    Set<String> estadosFinales = afn.getEstadosFinales();
 	    Set<String> subEstados = new HashSet<>();
 	    String OrigenActual, DestinoActual;
+	    System.out.println("### transiciones del AFD ###");
 
 	    while (!pila.isEmpty()) {
 	        OrigenActual = pila.pop();
 	        estadosProcesados.add(OrigenActual);
-
 	        for (Character simbolo : afn.getAlfabeto()) {
 	            subEstados = this.toSetString(OrigenActual);
 	            DestinoActual = this.getTransiciones(subEstados, simbolo, transiciones);
 	            if(this.hasEstadoFinal(estadosFinales, subEstados)) dfa.addEstadoFinal(OrigenActual);
 	            if (!DestinoActual.isEmpty()) {
 	                dfa.addTransicion(OrigenActual, DestinoActual, simbolo);
-	                System.out.println("transicion añadida: " + OrigenActual + "-" + simbolo + ">" + DestinoActual);
+	                System.out.println("transicion agregada: " + OrigenActual + "-" + simbolo + ">" + DestinoActual);
 	                
 	                if (!estadosProcesados.contains(DestinoActual) && !pila.contains(DestinoActual)) {
 	                    pila.push(DestinoActual);
 	                }
 	            }
 	        }
+	    }
+	    System.out.println("### estados finales ###");
+	    for(String estado : dfa.getEstadosFinales()) {
+	    	System.out.println(estado);
 	    }
 
 	    return dfa;
@@ -65,6 +69,7 @@ public class AFNtoDFA {
 	private Set<String> toSetString(String cadena){
 		Set<String> set = new HashSet<>();
 		cadena = cadena.replace("{", "").replace("}", "");
+		//cadena = cadena.replace("\"", "").replace("\"", "");
 		String[] partes = cadena.split(",");
 		for(String parte : partes) set.add(parte);
 		return set;
@@ -92,7 +97,7 @@ public class AFNtoDFA {
 		for(String estado : estadosClausura) {
 			clausura = clausura+","+estado;
 		}
-		System.out.println("{"+clausura+"}");
+		System.out.println("estado inicial del AFD: {"+clausura+"}");
 		return "{"+clausura+"}";
 	}
 	

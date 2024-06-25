@@ -81,13 +81,30 @@ public class Converter {
 		texto.add("digraph{");
 		texto.add("inic[shape=point];");
 		texto.add("rankdir=LR;");
-		texto.add("inic->" + automata.getEstadoInicial() + ";");
+		texto.add("inic->\"" + automata.getEstadoInicial() + "\";");
 		for (Transicion transicion : automata.getTransiciones()) {
-			texto.add(transicion.getOrigen() + "->" + transicion.getDestino() + " [label=\"" + transicion.getSimbolo()
+			texto.add("\""+transicion.getOrigen()+"\"" + "->\"" + transicion.getDestino() + "\" [label=\"" + transicion.getSimbolo()
 					+ "\"];");
 		}
 		for (String estadoFinal : automata.getEstadosFinales()) {
-			texto.add(estadoFinal + "[shape=doublecircle];");
+			texto.add("\""+estadoFinal + "\"[shape=doublecircle];");
+		}
+		texto.add("}");
+		return texto;
+	}
+	
+	public List<String> afd2text(DFA automata) {
+		List<String> texto = new ArrayList<String>();
+		texto.add("digraph{");
+		texto.add("inic[shape=point];");
+		texto.add("rankdir=LR;");
+		texto.add("inic->\"" + automata.getEstadoInicial() + "\";");
+		for (Transicion transicion : automata.getTransiciones()) {
+			texto.add("\""+transicion.getOrigen()+"\"" + "->\"" + transicion.getDestino() + "\" [label=\"" + transicion.getSimbolo()
+					+ "\"];");
+		}
+		for (String estadoFinal : automata.getEstadosFinales()) {
+			texto.add("\""+estadoFinal + "\"[shape=doublecircle];");
 		}
 		texto.add("}");
 		return texto;
